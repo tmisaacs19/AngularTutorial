@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="myFirstApp">
+<html ng-app="myFirstApp"> <!--name of the model, container for everything-->
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,11 +41,17 @@
 </nav>
 
 <div class="container">
-<div class="starter-template">
+<div class="starter-template" ng-controller='myController'>
+	<div class="input group">
+		<label for="firstName">First Name
+		<input type="text" name="name" ng-model="firstName"> <!--Whatever the user types is saved to the myName Model-->
+	</label>
+		<div class="input group">
+		<label for="lastName">Last Name
+		<input type="text" name="name" ng-model="lastName"> <!--Whatever the user types is saved to the myName Model-->
+	</label>
 
-<input type="text" placeholder="enter your name" ng-model="myName"> 
-
-<h1> Hello, {{1+20}} </h1>
+<h1> Hello, {{firstName}} {{lastName}} </h1> <!-- ng-bind, or double curly brackets, ng bind can also do math takes the value of that variable-->
 
 </div>
 </div>
