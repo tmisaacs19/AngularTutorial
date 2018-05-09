@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="myFirstApp"> <!--name of the model, container for everything-->
+<html ng-app="DemoApp"> <!--name of the model, container for everything-->
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,17 +41,17 @@
 </nav>
 
 <div class="container">
-<div class="starter-template" ng-controller='myController'>
-	<div class="input group">
-		<label for="firstName">First Name
-		<input type="text" name="name" ng-model="firstName"> <!--Whatever the user types is saved to the myName Model-->
-	</label>
-		<div class="input group">
-		<label for="lastName">Last Name
-		<input type="text" name="name" ng-model="lastName"> <!--Whatever the user types is saved to the myName Model-->
-	</label>
+<div class="starter-template">
 
-<h1> Hello, {{firstName}} {{lastName}} </h1> <!-- ng-bind, or double curly brackets, ng bind can also do math takes the value of that variable-->
+<div ng-controller='ParentCtrl as Prt'>
+	
+	<h1>Hello {{printName()}}</h1>
+
+	<div ng-controller='SonCtrl as Son'>
+		<h1>Hello {{Son.name}}, Son of {{Prt.name}}</h1>
+	</div>
+</div>
+
 
 </div>
 </div>
@@ -60,6 +60,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js'></script>
 <script src="app.js"></script>
+<script src="controller.js"></script>
+
 
 </body>
 </html>

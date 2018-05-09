@@ -1,6 +1,19 @@
-var myApp = angular.module('myFirstApp', []);
-myApp.controller('myController', function($scope){
+var myApp = angular.module('DemoApp', []);
 
-		$scope.firstName = 'Trainee';
-		$scope.lastName = 'Isaacs';
-});
+myApp.factory('personServices', function(){
+	var person = {}
+
+	person.printName = function(firstName, lastName){
+		return firstName + ' ' + lastName;
+	}
+	return person;
+})
+
+myApp.controller('myController', function($scope, personServices){
+
+	$scope.firstName = "Trainee";
+	$scope.lastName = "Person";
+
+	$scope.printName = function () {personServices.printName($scope.firstName, $scope.lastName);
+}
+})
