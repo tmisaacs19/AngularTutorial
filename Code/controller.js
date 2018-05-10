@@ -1,10 +1,12 @@
-angular.module('DemoApp').controller('ParentCtrl', function (){
+angular.module('myFirstApp')
+.controller('myController', function($scope, personService) {
 
-	var Prt = this;
-	Prt.name = 'John';
-	
-}).controller('SonCtrl',  function(){
+    $scope.firstName = 'Trainee';
+    $scope.lastName = 'Russo';
+     
 
-	var Son = this;
-	Son.name = 'Sam';
-})
+    $scope.printName = function () { return personService.printName($scope.firstName,$scope.lastName) }
+ ;
+
+
+} );
